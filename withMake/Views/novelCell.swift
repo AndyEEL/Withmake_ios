@@ -9,6 +9,20 @@ import UIKit
 
 class novelCell: UITableViewCell {
 
+     
+    @IBOutlet var postImageView: UIImageView!
+    @IBOutlet var postTitleLabel: UILabel!
+    @IBOutlet var postSummaryLabel: UILabel!
+    @IBOutlet var numberOfViewLabel: UILabel!
+    @IBOutlet var numberOfCommentLabel: UILabel!
+    @IBOutlet var tagLabel: UILabel!
+    
+    static let identifier = "novelCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "novelCell", bundle: nil)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +32,16 @@ class novelCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func configure(with model: novelModel) {
+        self.postImageView.image = UIImage(named: model.postImageName)
+        self.postTitleLabel.text = model.postTitle
+        self.postSummaryLabel.text = model.postSummary
+        self.numberOfViewLabel.text = String(format: "%.1f",
+                                             model.numberOfView)
+        self.numberOfCommentLabel.text = String(format: "%.1f",
+                                                model.numberOfComment)
+        self.tagLabel.text = model.tag
     }
     
 }
