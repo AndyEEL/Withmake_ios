@@ -9,6 +9,7 @@ import UIKit
 
 class novelCell: UITableViewCell {
 
+class novelCell: UITableViewCell {
      
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var postTitleLabel: UILabel!
@@ -16,6 +17,8 @@ class novelCell: UITableViewCell {
     @IBOutlet var numberOfViewLabel: UILabel!
     @IBOutlet var numberOfCommentLabel: UILabel!
     @IBOutlet var tagLabel: UILabel!
+    
+    var novelmodel: [novelModel] = []
     
     static let identifier = "novelCell"
     
