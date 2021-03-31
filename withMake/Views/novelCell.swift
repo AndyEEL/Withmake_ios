@@ -7,7 +7,6 @@
 
 import UIKit
 
-class novelCell: UITableViewCell {
 
 class novelCell: UITableViewCell {
      

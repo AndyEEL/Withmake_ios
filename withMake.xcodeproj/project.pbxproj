@@ -20,7 +20,6 @@
 		8623F106260B11FB00033AAF /* RegisterPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F105260B11FB00033AAF /* RegisterPinViewController.swift */; };
 		8623F10D260B124800033AAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F10C260B124800033AAF /* LoginViewController.swift */; };
 		866B1A1A260C4F0E00756B1C /* novelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B1A19260C4F0E00756B1C /* novelModel.swift */; };
-		866B1A1D260C6D5C00756B1C /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B1A1C260C6D5C00756B1C /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		8623F105260B11FB00033AAF /* RegisterPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPinViewController.swift; sourceTree = "<group>"; };
 		8623F10C260B124800033AAF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		866B1A19260C4F0E00756B1C /* novelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = novelModel.swift; sourceTree = "<group>"; };
-		866B1A1C260C6D5C00756B1C /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,6 @@
 				860BF82B260210640056428B /* Main.storyboard */,
 				8623F0EF260AD97200033AAF /* novelCell.swift */,
 				8623F0F0260AD97200033AAF /* novelCell.xib */,
-				866B1A1C260C6D5C00756B1C /* MenuBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,7 +187,6 @@
 				8623F0F9260B0BCD00033AAF /* EntryViewController.swift in Sources */,
 				8623F106260B11FB00033AAF /* RegisterPinViewController.swift in Sources */,
 				860BF826260210640056428B /* AppDelegate.swift in Sources */,
-				866B1A1D260C6D5C00756B1C /* MenuBar.swift in Sources */,
 				866B1A1A260C4F0E00756B1C /* novelModel.swift in Sources */,
 				8623F0F1260AD97200033AAF /* novelCell.swift in Sources */,
 				8623F10D260B124800033AAF /* LoginViewController.swift in Sources */,
