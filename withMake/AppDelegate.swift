@@ -18,6 +18,8 @@ var window: UIWindow?
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = MainViewController()
+        
+        
                
         return true
                

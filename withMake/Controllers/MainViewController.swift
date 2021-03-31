@@ -17,33 +17,45 @@ class VideoCell: UICollectionViewCell {
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
+        //imageView.image = UIImage(named: <#T##String#>)
+        //imageView.contentMode = .scaleAspectFill
+        //imageView.clipsToBounds = true
         return imageView
         }()
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .green
+        //imageView.image = UIImage(named: <#T##String#>)
+        
+        //cornerRadius 와 masksToBounds 는 형제!, 같이다님
+        imageView.layer.cornerRadius = 22
+        imageView.layer.masksToBounds = true
         return imageView
         }()
         
 
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         return view
-        }()
+    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .purple
+        label.text = "안녕하세요 윗메이크 앱입니다."
+        label.backgroundColor = .cyan
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let subtitleTextView: UITextView  = {
         let textView = UITextView()
-        textView.backgroundColor = .red
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.backgroundColor = .white
+        textView.text = "안녕하세요 윗메이크 앱입니다.안녕하세요 윗메이크 앱입니다.안녕하세요 윗메이크 앱입니다.안녕하세요 윗메이크 앱입니다."
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+        textView.textColor = .lightGray
         return textView
     }()
     
@@ -84,13 +96,13 @@ class VideoCell: UICollectionViewCell {
         //addConstraintsWithFormat(format: "V:[v0(20)]", views: titleLabel)
         
         //top constraints 콘스트레인 설정하는 것도 중요함
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8))
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 4))
         //left constraints
         addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
         //right constraints
         addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         //height constraints
-        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
         
         
         
@@ -124,8 +136,10 @@ extension UIView { //알고리즘 중요!!
 extension MainViewController: UICollectionViewDelegateFlowLayout{
     //함수 다 외우기
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //높이 는 16:10이 좋다.
+        let height = (view.frame.width - 16 - 16) * 9 / 16
         //중요!!!!
-        return CGSize(width: view.frame.width, height: 200)
+        return CGSize(width: view.frame.width, height: height + 16 + 68)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -152,8 +166,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = ""
-        //navigationController?.isNavigationBarHidden = true
+        UINavigationBar.appearance().barTintColor = .red
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.title = "윗메이크!!"
+        
+        
         
         
         let layout = UICollectionViewFlowLayout()
