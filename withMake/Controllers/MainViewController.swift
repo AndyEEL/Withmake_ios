@@ -17,36 +17,86 @@ class VideoCell: UICollectionViewCell {
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+        }()
+    
+    let userProfileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .green
         return imageView
         }()
         
-        let separatorView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .black
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
+
+    let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
         }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .purple
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let subtitleTextView: UITextView  = {
+        let textView = UITextView()
+        textView.backgroundColor = .red
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
+    
+    
     
     func setupViews() {
         
         addSubview(thumbnailImageView)
         addSubview(separatorView)
+        addSubview(userProfileImageView)
+        addSubview(titleLabel)
+        addSubview(subtitleTextView)
         
         //중요 NSLayoutConstraints 이해와 옵션 이해
         //중요 translatesAutoresizingMaskIntoConstraints = false
-        thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
-//        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["v0": thumbnailImageView]));
-        addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["v0": thumbnailImageView]));
-        
-        //리팩토링 해보기!
+        //        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["v0": thumbnailImageView]));
         //위에서부터 contraints가 내려온다. 아마 option문제일듯!
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["v0": separatorView]));
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(1)]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["v0": separatorView]));
-                    
+              
         addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
+        
+        //horizontal constraints
+        addConstraintsWithFormat(format: "H:|-16-[v0(44)]|", views: userProfileImageView)
+        
+        addConstraintsWithFormat(format: "H:|[v0]|", views: separatorView)
+        
+        //vertical constraints
+        addConstraintsWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", views: thumbnailImageView, userProfileImageView, separatorView)
+        
+        //top constraints 콘스트레인 설정하는 것도 중요함
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: thumbnailImageView, attribute: .bottom, multiplier: 1, constant: 8))
+        //left constraints
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
+        //right constraints
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
+        //height constraints
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        
+        //addConstraintsWithFormat(format: "V:[v0(20)]", views: titleLabel)
+        
+        //top constraints 콘스트레인 설정하는 것도 중요함
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8))
+        //left constraints
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .left, relatedBy: .equal, toItem: userProfileImageView, attribute: .right, multiplier: 1, constant: 8))
+        //right constraints
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
+        //height constraints
+        addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
+        
+        
+        
+        
+        
+
     }
     
     required init?(coder: NSCoder) {
@@ -54,11 +104,12 @@ class VideoCell: UICollectionViewCell {
     }
 }
 
-extension UIView {
+extension UIView { //알고리즘 중요!!
     func addConstraintsWithFormat(format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
         for (index, view) in views.enumerated() {
             let key = "v\(index)"
+            //중요!!! 여기서 어토라이징마스크인투콘스타라인트 부여해서 인스턴스 수정하였음
             view.translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary[key] = view
         }
