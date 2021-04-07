@@ -13,13 +13,11 @@
 		860BF82D260210640056428B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860BF82B260210640056428B /* Main.storyboard */; };
 		860BF82F260210670056428B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BF82E260210670056428B /* Assets.xcassets */; };
 		860BF832260210670056428B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860BF830260210670056428B /* LaunchScreen.storyboard */; };
-		8623F0F1260AD97200033AAF /* novelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F0EF260AD97200033AAF /* novelCell.swift */; };
-		8623F0F2260AD97200033AAF /* novelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8623F0F0260AD97200033AAF /* novelCell.xib */; };
 		8623F0F9260B0BCD00033AAF /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F0F8260B0BCD00033AAF /* EntryViewController.swift */; };
 		8623F103260B11CC00033AAF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F102260B11CC00033AAF /* RegisterViewController.swift */; };
 		8623F106260B11FB00033AAF /* RegisterPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F105260B11FB00033AAF /* RegisterPinViewController.swift */; };
 		8623F10D260B124800033AAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623F10C260B124800033AAF /* LoginViewController.swift */; };
-		866B1A1A260C4F0E00756B1C /* novelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866B1A19260C4F0E00756B1C /* novelModel.swift */; };
+		8686F147261DF52300779AA9 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686F146261DF52300779AA9 /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +29,11 @@
 		860BF82E260210670056428B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		860BF831260210670056428B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		860BF833260210670056428B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8623F0EF260AD97200033AAF /* novelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = novelCell.swift; sourceTree = "<group>"; };
-		8623F0F0260AD97200033AAF /* novelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = novelCell.xib; sourceTree = "<group>"; };
 		8623F0F8260B0BCD00033AAF /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		8623F102260B11CC00033AAF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8623F105260B11FB00033AAF /* RegisterPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPinViewController.swift; sourceTree = "<group>"; };
 		8623F10C260B124800033AAF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		866B1A19260C4F0E00756B1C /* novelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = novelModel.swift; sourceTree = "<group>"; };
+		8686F146261DF52300779AA9 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				860BF82B260210640056428B /* Main.storyboard */,
-				8623F0EF260AD97200033AAF /* novelCell.swift */,
-				8623F0F0260AD97200033AAF /* novelCell.xib */,
+				8686F146261DF52300779AA9 /* BookCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,7 +90,6 @@
 		8623F0F5260B0A2300033AAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				866B1A19260C4F0E00756B1C /* novelModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,7 +165,6 @@
 			files = (
 				860BF832260210670056428B /* LaunchScreen.storyboard in Resources */,
 				860BF82F260210670056428B /* Assets.xcassets in Resources */,
-				8623F0F2260AD97200033AAF /* novelCell.xib in Resources */,
 				860BF82D260210640056428B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,8 +180,7 @@
 				8623F0F9260B0BCD00033AAF /* EntryViewController.swift in Sources */,
 				8623F106260B11FB00033AAF /* RegisterPinViewController.swift in Sources */,
 				860BF826260210640056428B /* AppDelegate.swift in Sources */,
-				866B1A1A260C4F0E00756B1C /* novelModel.swift in Sources */,
-				8623F0F1260AD97200033AAF /* novelCell.swift in Sources */,
+				8686F147261DF52300779AA9 /* BookCell.swift in Sources */,
 				8623F10D260B124800033AAF /* LoginViewController.swift in Sources */,
 				860BF828260210640056428B /* SceneDelegate.swift in Sources */,
 				8623F103260B11CC00033AAF /* RegisterViewController.swift in Sources */,
